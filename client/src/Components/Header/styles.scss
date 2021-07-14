@@ -1,0 +1,49 @@
+$header-background: #040404;
+$font-color: white;
+
+.Header{
+  height: 13vh;
+
+  background-color: $header-background;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo-wrapper {
+
+    height: 100%;
+    width: 25%;
+
+    padding: 2rem;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .search-wrapper {
+    height: 100%;
+    width: 20%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .search-icon {
+      font-size: 3rem;
+      color: $font-color;
+    }
+    input {
+      height: 4rem;
+      padding-left: 2rem;
+      font-size: 2rem;
+      background-color: $header-background;
+      border: none;
+      &::placeholder{
+        color: $font-color;
+      }
+    }
+  }
+}

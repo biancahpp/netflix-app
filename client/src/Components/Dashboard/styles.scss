@@ -1,0 +1,11 @@
+$background-color: #141414;
+$font-color: white;
+
+.Dashboard {
+  min-height: 87vh;
+  width: 100vw;
+  background-color: $background-color;
+  color: $font-color;
+
+  padding: 5rem 12rem;
+}
