@@ -2,10 +2,10 @@ import './styles.scss';
 import { FiSearch } from 'react-icons/fi'
 
 interface Props {
-  
+  setFilter: Function
 }
 
-export const Header = (props: Props) => {
+export const Header = ({setFilter}: Props) => {
   return (
     <div className="Header">
       <div className="logo-wrapper">

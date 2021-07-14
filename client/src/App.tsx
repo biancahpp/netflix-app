@@ -6,14 +6,19 @@ import { MovieI } from './Interfaces/DiscoverI';
 import { apiDisplayInfo, apiGetAllMovies } from './Services/ApiService';
 
 function App() {
+  const [discoverMovies, setDiscoverMovies] = useState<MovieI[] | null>(null);
   const [allMovies, setAllMovies] = useState<MovieI[] | null>(null);
   const [myMovies, setMyMovies] = useState<any>({});
+  const [filterMovies, setFilterMovies] = useState<any>(allMovies);
 
   useEffect(() => {
     apiDisplayInfo().then((response) => {
-      setAllMovies(response);
+      setDiscoverMovies(response);
     });
-    apiGetAllMovies();
+    apiGetAllMovies().then((response) => {
+      setAllMovies(response);
+    }
+    );
   }, []);
 
   const addToMyList = (movie: MovieI) => {
@@ -33,8 +38,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Dashboard allMovies={allMovies} myMovies={myMovies} addToMyList={addToMyList} />
+      <Header setFilter={setFilterMovies}/>
+      <Dashboard discoverMovies={discoverMovies} myMovies={myMovies} addToMyList={addToMyList} allMovies={allMovies}/>
     </div>
   );
 }

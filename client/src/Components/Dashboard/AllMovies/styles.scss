@@ -1,0 +1,42 @@
+$icon-color: #E6020C;
+
+.AllMovies {
+  background-color: aqua;
+
+  display: flex;
+  flex-direction: row;
+
+  text-align: center;
+
+  padding-top: 2rem;
+
+  .all-movies-img-wrapper{
+    background-color: pink;
+    display: inline-block;
+    width: 30rem;
+    height: 17rem;
+    margin: 0 0 2rem 2rem;
+
+    position: relative;
+
+
+    &:hover{
+      cursor: pointer;
+      .image-icon {
+        display: block;
+      }
+    }
+  }
+
+  .image-icon {
+    font-size: 3rem;
+
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+
+    color: $icon-color;
+
+    display: none;
+  }
+}

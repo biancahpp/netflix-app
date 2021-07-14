@@ -1,3 +1,5 @@
+$icon-color: #E6020C;
+
 .MyList {
   // background-color: royalblue;
   margin-top: 5rem;
@@ -40,7 +42,7 @@
       bottom: 10%;
       right: 10%;
 
-      color: white;
+      color: $icon-color;
 
       display: none;
     }

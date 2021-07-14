@@ -1,3 +1,5 @@
+$icon-color: #E6020C;
+
 .Discover {
   margin-top: 5rem;
   height: 25%;
@@ -40,7 +42,7 @@
       bottom: 10%;
       right: 10%;
 
-      color: white;
+      color: $icon-color;
 
       display: none;
     }

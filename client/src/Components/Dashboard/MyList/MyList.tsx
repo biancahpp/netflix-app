@@ -38,11 +38,6 @@ export const MyList = ({movies, title, addToMyList}: Props) => {
                 
               )
             }
-            {/* {movies.map(movie => 
-            <div className="movie-img-wrapper" key={movie.id} style={{backgroundImage: `url('https://image.tmdb.org/t/p/w300${movie.backdrop_path}')`}} onClick={() => addToMyList(movie)}>
-              <FiPlusCircle  className="image-icon" />
-            </div>
-            )} */}
           </div>
         </div>
         :
@@ -52,8 +47,3 @@ export const MyList = ({movies, title, addToMyList}: Props) => {
     </div>
   )
 }
-
-
-{/* {
-  movie.my_list ? <FiPlusCircle  className="image-icon" onClick={() => addToMyList(movie)}/> : <FiPlusCircle  className="image-icon"/>
-} */}
