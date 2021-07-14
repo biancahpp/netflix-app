@@ -9,7 +9,7 @@ function App() {
   const [discoverMovies, setDiscoverMovies] = useState<MovieI[] | null>(null);
   const [allMovies, setAllMovies] = useState<MovieI[] | null>(null);
   const [myMovies, setMyMovies] = useState<any>({});
-  const [filterMovies, setFilterMovies] = useState<any>(allMovies);
+  const [filteredMovies, setFilteredMovies] = useState<any>(allMovies);
 
   useEffect(() => {
     apiDisplayInfo().then((response) => {
@@ -17,29 +17,32 @@ function App() {
     });
     apiGetAllMovies().then((response) => {
       setAllMovies(response);
+      setFilteredMovies(response);
     }
     );
   }, []);
 
   const addToMyList = (movie: MovieI) => {
-    const movieId = movie.id;
-
       if(myMovies.hasOwnProperty(movie.id)) {
         setMyMovies((state: any) => {
-          delete state[movieId];
+          delete state[movie.id];
           return {...state};
         });
-        // Ask if there is a way to add a variable prop name into object deconstructing.
-        // setMyMovies(({movieId, ...rest}: any) => ({...rest})); 
       } else {
-        setMyMovies((state: any) => ({...state, [movieId]: movie}))
+        setMyMovies((state: any) => ({...state, [movie.id]: movie}))
       }
+  }
+
+  const filterMovies = (value: string) => {
+    const result = allMovies?.filter(movie => movie.title.toLowerCase().includes(value));
+
+    setFilteredMovies(result);
   }
 
   return (
     <div className="App">
-      <Header setFilter={setFilterMovies}/>
-      <Dashboard discoverMovies={discoverMovies} myMovies={myMovies} addToMyList={addToMyList} allMovies={allMovies}/>
+      <Header filterMovies={filterMovies}/>
+      <Dashboard discoverMovies={discoverMovies} myMovies={myMovies} addToMyList={addToMyList} allMovies={filteredMovies}/>
     </div>
   );
 }

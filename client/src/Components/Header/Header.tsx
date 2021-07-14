@@ -2,10 +2,10 @@ import './styles.scss';
 import { FiSearch } from 'react-icons/fi'
 
 interface Props {
-  setFilter: Function
+  filterMovies: Function
 }
 
-export const Header = ({setFilter}: Props) => {
+export const Header = ({filterMovies}: Props) => {
   return (
     <div className="Header">
       <div className="logo-wrapper">
@@ -13,7 +13,7 @@ export const Header = ({setFilter}: Props) => {
       </div>
       <div className="search-wrapper">
         <FiSearch className="search-icon"/>
-        <input type="text" placeholder="Search"/>
+        <input type="text" placeholder="Search" onChange={e => filterMovies(e.target.value)}/>
       </div>
     </div>
   )
