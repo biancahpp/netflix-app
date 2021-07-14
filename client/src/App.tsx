@@ -3,7 +3,7 @@ import './App.scss';
 import { Dashboard } from './Components/Dashboard/Dashboard';
 import { Header } from './Components/Header/Header'
 import { MovieI } from './Interfaces/DiscoverI';
-import { apiDisplayInfo } from './Services/ApiService';
+import { apiDisplayInfo, apiGetAllMovies } from './Services/ApiService';
 
 function App() {
   const [allMovies, setAllMovies] = useState<MovieI[] | null>(null);
@@ -13,6 +13,7 @@ function App() {
     apiDisplayInfo().then((response) => {
       setAllMovies(response);
     });
+    apiGetAllMovies();
   }, []);
 
   const addToMyList = (movie: MovieI) => {
