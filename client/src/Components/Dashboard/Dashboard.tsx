@@ -16,7 +16,7 @@ export const Dashboard = ({discoverMovies, myMovies, addToMyList, allMovies}: Pr
     <div className="Dashboard">
       <MyList movies={myMovies} title={"My List"} addToMyList={addToMyList} />
       <Discover movies={discoverMovies} title={"Discover"} addToMyList={addToMyList} myList={myMovies}/>
-      <AllMovies allMovies={allMovies} myList={myMovies}/>
+      <AllMovies allMovies={allMovies} myList={myMovies} addToMyList={addToMyList}/>
     </div>
   )
 }
