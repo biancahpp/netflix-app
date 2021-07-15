@@ -48,11 +48,18 @@ function App() {
   const filterMovies = (value: string) => {
     const newAllMovies = allMovies.filter((movie: MovieI) => movie.title.toLowerCase().includes(value));
     const newDiscover = discoverMovies.filter((movie: MovieI) => movie.title.toLowerCase().includes(value));
-    // const newMyMovies = myMovies.filter(movie => movie.title.toLowerCase().includes(value));
     
+    filterMyMovies(value);    
     setFilteredMovies(newAllMovies);
     setFilteredDiscover(newDiscover);
-    // setFilteredMyMovies(newMyMovies);
+  }
+
+  const filterMyMovies = (value: string) => {
+    let newMyMovies = {}
+    for (let id in myMovies) {
+      if (myMovies[id].title.toLowerCase().includes(value)) newMyMovies = {...newMyMovies, id: myMovies[id]}
+    }
+    setFilteredMyMovies(newMyMovies);    
   }
 
   return (
