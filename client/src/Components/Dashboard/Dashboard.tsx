@@ -5,10 +5,10 @@ import { MyList } from './MyList/MyList';
 import './styles.scss';
 
 interface Props {
-  discoverMovies: MovieI[] | null
-  myMovies: any
+  discoverMovies: MovieI[]
+  myMovies: MovieI[]
   addToMyList: Function
-  allMovies: MovieI[] | null
+  allMovies: MovieI[]
 }
 
 export const Dashboard = ({discoverMovies, myMovies, addToMyList, allMovies}: Props) => {
