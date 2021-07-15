@@ -1,15 +1,12 @@
-$icon-color: #E6020C;
+$icon-color: white;
 
 .AllMovies {
 
   display: flex;
   flex-direction: column;
 
-  text-align: center;
 
-  padding-left: 4.5%;
-
-  h1{
+  .AllMovies-title{
     font-size: 3rem;
     font-weight: 400;
     letter-spacing: 1.5px;
@@ -24,26 +21,57 @@ $icon-color: #E6020C;
     height: 17rem;
     margin: 0 3rem 3rem 0;
 
-    position: relative;
-
-
     &:hover{
       cursor: pointer;
-      .image-icon {
-        display: block;
+      .movie-details {
+        visibility: visible;
       }
     }
   }
 
-  .image-icon {
-    font-size: 3rem;
+  .movie-details {
+    width: 100%;
+    max-height: 100%;
+    min-height: 100%;
 
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    background-color: rgba(0, 0, 0, 0.527);
+    
+    visibility: hidden;
+    h1{
+      min-height: 3.2rem;
+      width: 100%;
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      padding: 0 2rem 1rem 1rem;
+      
+    }
+    
+    p {
+      text-align: justify;
+      height: 10.2rem;
+      min-width: 100%;
+      padding: 1rem;
+      overflow-y: scroll;
+      font-size: 1.5rem;
+    }
+    .image-icon {
+      display: flex;
+      align-items: flex-start;
+      min-height: 3.6rem;
+      font-size: 3rem;
+      color: $icon-color;
+      padding-bottom: .5rem;
 
-    color: $icon-color;
-
-    display: none;
+    }
   }
 }
+
+      
+
+
+      

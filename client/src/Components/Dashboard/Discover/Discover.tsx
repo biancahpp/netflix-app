@@ -22,12 +22,18 @@ export const Discover = ({movies, title, addToMyList, myList}: Props) => {
           </h1>
           <div className="movies-list">
             {movies.map(movie => 
-            <div className="movie-img-wrapper" key={movie.id} style={{backgroundImage: `url('https://image.tmdb.org/t/p/w300${movie.backdrop_path}')`}} onClick={() => addToMyList(movie)}>
+            <div className="movie-img-wrapper" key={movie.id} style={{backgroundImage: `url('https://image.tmdb.org/t/p/w300${movie.backdrop_path}')`}}>
               {
-                myList.hasOwnProperty(movie.id) ?
-                  <FiCheckCircle  className="image-icon"/>
-                :
-                  <FiPlusCircle  className="image-icon" />
+                <div className="movie-details" >
+                  <h1>{movie.title}</h1>
+                  <p>{movie.overview}</p>
+                  {
+                    myList.hasOwnProperty(movie.id) ?
+                    <FiCheckCircle  className="image-icon" onClick={() => addToMyList(movie)}/>
+                  :
+                    <FiPlusCircle  className="image-icon" onClick={() => addToMyList(movie)}/>
+                  }
+                </div>                    
               }
             </div>
             )}

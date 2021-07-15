@@ -26,14 +26,19 @@ export const MyList = ({movies, title, addToMyList}: Props) => {
                   className="movie-img-wrapper" 
                   key={movieId[1].id} 
                   style={{backgroundImage: `url('https://image.tmdb.org/t/p/w300${movieId[1].backdrop_path}')`}} 
-                  onClick={() => addToMyList(movieId[1])}
                   >
-                   {
-                  movies.hasOwnProperty(movieId[1].id) ?
-                    <FiCheckCircle  className="image-icon"/>
-                  :
-                    <FiPlusCircle  className="image-icon" />
-              }
+                  {
+                    <div className="movie-details" >
+                      <h1>{movieId[1].title}</h1>
+                      <p>{movieId[1].overview}</p>
+                      {
+                        movies.hasOwnProperty(movieId[1].id) ?
+                        <FiCheckCircle  className="image-icon"onClick={() => addToMyList(movieId[1])}/>
+                      :
+                        <FiPlusCircle  className="image-icon" onClick={() => addToMyList(movieId[1])}/>
+                      }
+                    </div>                    
+                  }
                 </div>
                 
               )
